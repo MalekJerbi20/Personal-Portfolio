@@ -1,0 +1,143 @@
+{
+  "settings": {
+    "displayName": "Malek Jerbi",
+    "siteUrl": "https://your-domain.example",
+    "cvUrl": "/cv/malek-jerbi-cv.pdf",
+    "cvAvailable": false,
+    "email": "",
+    "githubUrl": "",
+    "linkedinUrl": ""
+  },
+  "projects": [
+    {
+      "title": "Multimodal Dataset Builder",
+      "slug": "multimodal-dataset-builder",
+      "shortDescription": "An internship web application for building and managing datasets across video, audio, text, and images.",
+      "description": "An internship project focused on a web application for creating and managing multimodal datasets. The application supports project workflows involving video, audio, text, and image assets, with separate responsibilities for administrators, annotators, and validators.",
+      "technologies": [],
+      "technologyNote": "The specific technologies used for this project will be documented here later.",
+      "category": "Internship project",
+      "year": "Year to be specified",
+      "role": "Internship project contributor",
+      "features": ["Dataset and project workflows", "Support for video, audio, text, and image data", "Admin, annotator, and validator roles"],
+      "challenges": ["Project-specific challenges to be documented."],
+      "learnings": ["Project-specific learnings to be documented."],
+      "githubUrl": "",
+      "demoUrl": "",
+      "image": ""
+    },
+    {
+      "title": "Architecture Website",
+      "slug": "architecture-website",
+      "shortDescription": "A responsive architecture website developed during an internship with frontend and backend/API integration.",
+      "description": "An internship project for an architecture website. The work included a responsive frontend, backend and API integration, and authentication-related functionality.",
+      "technologies": [],
+      "technologyNote": "The specific frontend and backend technologies used for this project will be documented here later.",
+      "category": "Internship project",
+      "year": "Year to be specified",
+      "role": "Internship project contributor",
+      "features": ["Responsive frontend", "Backend and API integration", "Authentication-related functionality"],
+      "challenges": ["Project-specific challenges to be documented."],
+      "learnings": ["Project-specific learnings to be documented."],
+      "githubUrl": "",
+      "demoUrl": "",
+      "image": ""
+    },
+    {
+      "title": "Football League Management Platform",
+      "slug": "football-league-management-platform",
+      "shortDescription": "A web application for managing football leagues, player requests, profiles, and match-related information.",
+      "description": "A web application built around two user roles: Master and Player. Masters can create leagues and review requests to join, while players can request access and maintain profiles with player cards and statistics.",
+      "technologies": [],
+      "technologyNote": "The technologies used for this project have not been documented yet.",
+      "category": "Web application",
+      "year": "Year to be specified",
+      "role": "Role to be specified",
+      "features": ["Master and player roles", "League creation and join-request approval", "Player profiles, cards, and statistics", "Email-based workflows"],
+      "challenges": ["Project-specific challenges to be documented."],
+      "learnings": ["Project-specific learnings to be documented."],
+      "githubUrl": "",
+      "demoUrl": "",
+      "image": ""
+    },
+    {
+      "title": "Event Management Application",
+      "slug": "event-management-application",
+      "shortDescription": "A school and personal development project for managing events, registrations, payments, and email workflows.",
+      "description": "A web application developed as a school and personal project. It includes user and administrator roles, event management, registration flows, cancellation, payment-related workflow, email functionality, and a MySQL database.",
+      "technologies": ["MySQL"],
+      "category": "School and personal project",
+      "year": "Year to be specified",
+      "role": "Role to be specified",
+      "features": ["User and administrator roles", "Event creation, editing, and deletion", "Event registration and cancellation", "Payment-related workflow", "Email functionality"],
+      "challenges": ["Project-specific challenges to be documented."],
+      "learnings": ["Project-specific learnings to be documented."],
+      "githubUrl": "",
+      "demoUrl": "",
+      "image": ""
+    }
+  ],
+  "skillGroups": [
+    { "name": "Frontend", "skills": ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"] },
+    { "name": "Tools & workflow", "skills": ["Git", "GitHub", "Vite", "npm", "MySQL", "Responsive design"] },
+    { "name": "Foundations", "skills": ["Software engineering", "Accessibility", "REST concepts", "Testing mindset"] }
+  ],
+  "translations": {
+    "fr": {
+      "projects": {
+        "multimodal-dataset-builder": {
+          "title": "Constructeur de jeux de données multimodaux",
+          "shortDescription": "Une application web développée en stage pour créer et gérer des jeux de données vidéo, audio, texte et image.",
+          "description": "Un projet de stage consacré à une application web permettant de créer et de gérer des jeux de données multimodaux. L’application prend en charge des workflows autour de vidéos, d’audios, de textes et d’images, avec des responsabilités distinctes pour les administrateurs, les annotateurs et les validateurs.",
+          "category": "Projet de stage",
+          "year": "Année à préciser",
+          "role": "Contributeur au projet de stage",
+          "features": ["Workflows de jeux de données et de projets", "Prise en charge des données vidéo, audio, texte et image", "Rôles administrateur, annotateur et validateur"],
+          "challenges": ["Les défis propres au projet seront documentés ultérieurement."],
+          "learnings": ["Les apprentissages propres au projet seront documentés ultérieurement."],
+          "technologyNote": "Les technologies précises utilisées pour ce projet seront documentées ultérieurement."
+        },
+        "architecture-website": {
+          "title": "Site web d’architecture",
+          "shortDescription": "Un site web d’architecture responsive développé pendant un stage, avec intégration frontend et backend/API.",
+          "description": "Un projet de stage pour un site web d’architecture. Le travail comprenait un frontend responsive, l’intégration d’un backend et d’API, ainsi que des fonctionnalités liées à l’authentification.",
+          "category": "Projet de stage",
+          "year": "Année à préciser",
+          "role": "Contributeur au projet de stage",
+          "features": ["Frontend responsive", "Intégration backend et API", "Fonctionnalités liées à l’authentification"],
+          "challenges": ["Les défis propres au projet seront documentés ultérieurement."],
+          "learnings": ["Les apprentissages propres au projet seront documentés ultérieurement."],
+          "technologyNote": "Les technologies frontend et backend précises utilisées pour ce projet seront documentées ultérieurement."
+        },
+        "football-league-management-platform": {
+          "title": "Plateforme de gestion de ligues de football",
+          "shortDescription": "Une application web pour gérer des ligues de football, les demandes des joueurs, les profils et les informations liées aux joueurs.",
+          "description": "Une application web organisée autour de deux rôles : Master et Player. Les Masters peuvent créer des ligues et examiner les demandes d’adhésion, tandis que les Players peuvent demander à rejoindre une ligue et gérer leur profil avec des cartes et des statistiques.",
+          "category": "Application web",
+          "year": "Année à préciser",
+          "role": "Rôle à préciser",
+          "features": ["Rôles Master et Player", "Création de ligues et validation des demandes d’adhésion", "Profils, cartes et statistiques des joueurs", "Workflows par e-mail"],
+          "challenges": ["Les défis propres au projet seront documentés ultérieurement."],
+          "learnings": ["Les apprentissages propres au projet seront documentés ultérieurement."],
+          "technologyNote": "Les technologies utilisées pour ce projet n’ont pas encore été documentées."
+        },
+        "event-management-application": {
+          "title": "Application de gestion d’événements",
+          "shortDescription": "Un projet scolaire et personnel pour gérer des événements, des inscriptions, des paiements et des workflows par e-mail.",
+          "description": "Une application web développée dans le cadre d’un projet scolaire et personnel. Elle comprend des rôles utilisateur et administrateur, la gestion d’événements, des parcours d’inscription et d’annulation, un workflow lié au paiement, des fonctionnalités d’e-mail et une base de données MySQL.",
+          "category": "Projet scolaire et personnel",
+          "year": "Année à préciser",
+          "role": "Rôle à préciser",
+          "features": ["Rôles utilisateur et administrateur", "Création, modification et suppression d’événements", "Inscription et annulation d’inscription", "Workflow lié au paiement", "Fonctionnalités d’e-mail"],
+          "challenges": ["Les défis propres au projet seront documentés ultérieurement."],
+          "learnings": ["Les apprentissages propres au projet seront documentés ultérieurement."]
+        }
+      },
+      "skillGroups": {
+        "Frontend": { "name": "Frontend", "skills": ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"] },
+        "Tools & workflow": { "name": "Outils et méthode", "skills": ["Git", "GitHub", "Vite", "npm", "MySQL", "Design responsive"] },
+        "Foundations": { "name": "Fondamentaux", "skills": ["Ingénierie logicielle", "Accessibilité", "Concepts REST", "Culture des tests"] }
+      }
+    }
+  }
+}
