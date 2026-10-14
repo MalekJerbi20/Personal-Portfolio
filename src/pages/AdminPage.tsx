@@ -219,7 +219,7 @@ function AdminPage() {
     event.preventDefault()
     setAuthError('')
     try {
-      const result = await apiRequest<{ token: string }>('/admin/login', {
+      const result = await apiRequest<{ token: string }>('/api/admin/login', {
         method: 'POST',
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
       })
