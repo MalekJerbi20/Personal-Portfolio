@@ -24,7 +24,7 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
         const timeout = window.setTimeout(() => controller.abort(), 8000)
         let base: PortfolioContent
         try {
-          base = parsePortfolioContent(await apiRequest('/portfolio', { signal: controller.signal }))
+          base = parsePortfolioContent(await apiRequest('api/portfolio', { signal: controller.signal }))
         } finally {
           window.clearTimeout(timeout)
         }
@@ -71,7 +71,7 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
 
   const publishContent = useCallback(async (token: string) => {
     if (!content) return
-    const result = await apiRequest<{ content: PortfolioContent }>('/admin/portfolio', {
+    const result = await apiRequest<{ content: PortfolioContent }>('api/admin/portfolio', {
       method: 'PUT',
       token,
       body: JSON.stringify(content),
