@@ -50,7 +50,7 @@ app.use(cors({
     }
     callback(new Error('This origin is not allowed.'))
   },
-  methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 app.use(express.json({ limit: '2mb' }))
@@ -101,13 +101,20 @@ async function requireAdmin(request: express.Request, response: express.Response
   }
 }
 
-app.get('/api/health', (_request, response) => response.json({ status: 'ok' }))
+app.get('/api/health', async (_request, response, next) => {
+  try {
+    await database.command({ ping: 1 })
+    response.json({ status: 'ok', database: 'ready' })
+  } catch (error) {
+    next(error)
+  }
+})
 
 app.get('/api/portfolio', async (_request, response, next) => {
   try {
     const document = await portfolioCollection.findOne({ _id: 'main' })
     if (!document) {
-      response.status(503).json({ error: 'Portfolio content is not initialized.' })
+      response.status(503).json({ error: 'Portfolio content is not initialized. Run the seed script or publish content from the admin dashboard.' })
       return
     }
     response.setHeader('Cache-Control', 'public, max-age=30, stale-while-revalidate=120')
@@ -149,6 +156,20 @@ app.post('/api/admin/login', loginLimiter, async (request, response, next) => {
 app.get('/api/admin/me', requireAdmin, (_request, response) => {
   response.setHeader('Cache-Control', 'no-store')
   response.json({ authenticated: true })
+})
+
+app.get('/api/admin/portfolio', requireAdmin, async (_request, response, next) => {
+  try {
+    const document = await portfolioCollection.findOne({ _id: 'main' })
+    if (!document) {
+      response.status(404).json({ error: 'Portfolio content has not been initialized yet. Run the seed script or publish once from the admin dashboard.' })
+      return
+    }
+    response.setHeader('Cache-Control', 'no-store')
+    response.json({ content: document.content, updatedAt: document.updatedAt })
+  } catch (error) {
+    next(error)
+  }
 })
 
 app.put('/api/admin/portfolio', requireAdmin, async (request, response, next) => {
@@ -240,17 +261,22 @@ const errorHandler: ErrorRequestHandler = (error, _request, response, _next) => 
 }
 app.use(errorHandler)
 
+async function seedPortfolioIfNeeded() {
+  const existing = await portfolioCollection.findOne({ _id: 'main' }, { projection: { _id: 1 } })
+  if (existing) {
+    return
+  }
+
+  const seedPath = resolve(process.cwd(), '../public/portfolio-content.json')
+  const seedContent = portfolioSchema.parse(JSON.parse(await readFile(seedPath, 'utf8')))
+  await portfolioCollection.insertOne({ _id: 'main', content: seedContent, updatedAt: new Date() })
+  console.info('Seeded MongoDB with the existing portfolio JSON.')
+}
+
 async function start() {
   await client.connect()
   await database.command({ ping: 1 })
-
-  const existing = await portfolioCollection.findOne({ _id: 'main' }, { projection: { _id: 1 } })
-  if (!existing) {
-    const seedPath = resolve(process.cwd(), '../public/portfolio-content.json')
-    const seedContent = portfolioSchema.parse(JSON.parse(await readFile(seedPath, 'utf8')))
-    await portfolioCollection.insertOne({ _id: 'main', content: seedContent, updatedAt: new Date() })
-    console.info('Seeded MongoDB with the existing portfolio JSON.')
-  }
+  await seedPortfolioIfNeeded()
 
   const port = Number(process.env.PORT ?? 4000)
   app.listen(port, '0.0.0.0', () => console.info(`Portfolio API listening on port ${port}.`))

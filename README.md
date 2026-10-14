@@ -37,7 +37,7 @@ See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rule
 - Render hosts the API in `server/`. The Render blueprint is in `render.yaml`; API setup details and required environment variables are in `server/README.md` and `server/.env.example`.
 - MongoDB Atlas stores the shared portfolio data. Cloudinary stores and serves the CV and project gallery images.
 
-Set `VITE_API_BASE_URL` in Netlify to the Render API URL ending in `/api`. Set `FRONTEND_ORIGINS` in Render to the exact Netlify site origin. Do not put database, JWT, admin password, or Cloudinary secrets in any `VITE_*` variable.
+Set `VITE_API_URL` in Netlify to the Render API URL ending in `/api`. Set `FRONTEND_ORIGINS` in Render to the exact Netlify site origin. Do not put database, JWT, admin password, or Cloudinary secrets in any `VITE_*` variable.
 
 Open `/admin`, sign in, edit content, and choose **Publish changes** to write to Atlas. Uploads require Cloudinary configuration. The admin token is short-lived and held only in memory; a page refresh requires signing in again. The bundled `public/portfolio-content.json` remains a startup seed and public-site fallback, not the ongoing source after the database has been initialized.
 

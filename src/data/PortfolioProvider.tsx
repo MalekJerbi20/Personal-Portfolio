@@ -20,22 +20,15 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
       setLoading(true)
       setError(null)
       try {
+        const controller = new AbortController()
+        const timeout = window.setTimeout(() => controller.abort(), 8000)
         let base: PortfolioContent
         try {
-          const controller = new AbortController()
-          const timeout = window.setTimeout(() => controller.abort(), 8000)
-          try {
-            base = parsePortfolioContent(await apiRequest('/portfolio', { signal: controller.signal }))
-          } finally {
-            window.clearTimeout(timeout)
-          }
-        } catch {
-          const response = await fetch(`${import.meta.env.BASE_URL}portfolio-content.json`)
-          if (!response.ok) {
-            throw new Error(`Portfolio content request failed (${response.status}).`)
-          }
-          base = parsePortfolioContent(await response.json())
+          base = parsePortfolioContent(await apiRequest('/portfolio', { signal: controller.signal }))
+        } finally {
+          window.clearTimeout(timeout)
         }
+
         const savedDraft = window.localStorage.getItem(DRAFT_STORAGE_KEY)
         let draft: PortfolioContent | null = null
         if (savedDraft) {

@@ -8,6 +8,7 @@ This Node API is deployed on Render. MongoDB Atlas stores the portfolio document
 2. Install and start MongoDB access, then run `npm install` in this folder.
 3. Generate the admin password hash with `npm run hash-password` and place the printed hash in `ADMIN_PASSWORD_HASH`.
 4. Start the API with `npm run dev`. The Vite app proxies `/api` to `http://localhost:4000` by default.
+5. Seed the database once if needed with `npm run seed:portfolio`.
 
 The first successful API start seeds Atlas from `../public/portfolio-content.json` if the `portfolio` collection has no main document.
 
